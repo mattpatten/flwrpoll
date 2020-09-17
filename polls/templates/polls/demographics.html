@@ -1,0 +1,69 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %} Questions about you: Neurofloristry Gerbera Poll {% endblock %}
+
+{% block extra_header_info %}
+	{% include "polls/setup_rateit.html" %}
+{% endblock %}
+
+{% block body %}
+<table class="whole-page">
+<tr><td>
+<div class="page-header"> Some Questions About You </div><br />
+<form method="post" target="_self">
+{% csrf_token %}
+<br />
+Please specify your gender:
+<br />
+<table class="gender"><tr>
+<td width="40%" valign="top" font-size="0.5rem"> {{ form.gender.0 }}
+<td width="60%" valign="top" font-size="0.5rem"> {{ form.gender.2 }}
+</tr><tr>
+<td width="40%" valign="top" font-size="0.5rem"> {{ form.gender.1 }}
+<td width="60%" valign="top" font-size="0.5rem"> {{ form.gender.3 }}
+</tr>
+</table>
+
+<br />
+{{ form.country.label }} <br />
+{{ form.country }} <br />
+{% if form.country.errors %}
+  <div class="error-text">{{ form.country.errors }}</div>
+{% endif %}
+
+<br />
+{{ form.age.label }} <br />
+{{ form.age }} <br />
+{% if form.age.errors %}
+  <div class="error-text"> {{ form.age.errors }} </div>
+{% endif %}
+<br />
+
+<p>
+{{ form.expertise_in_horticulture.label }}
+{{ form.expertise_in_horticulture }}
+<div class="rateit" data-rateit-backingfld="#hort_rating" data-rateit-resetable="false" data-rateit-mode="font" style="font-size:2rem"></div>
+{% if form.expertise_in_horticulture.errors %}
+  <div class="error-text"> {{ form.expertise_in_horticulture.errors }} </div>
+{% endif %}
+<br /><br />
+
+<p>
+{{ form.expertise_in_floral_design.label }}
+{{ form.expertise_in_floral_design }}
+<div class="rateit" data-rateit-backingfld="#floral_design_rating" data-rateit-resetable="false" data-rateit-mode="font" style="font-size:2rem"></div>      
+{% if form.expertise_in_floral_design.errors %}
+  <div class="error-text"> {{ form.expertise_in_floral_design.errors }} </div>
+{% endif %}
+<br /><br /><br />
+
+{{ form.purchase_frequency.label }}
+<br />
+{{ form.purchase_frequency }}
+<br /><br /><br />
+<input type="submit" class="submit_button" value="Continue">
+</form>
+<br /><br />
+</tr></table>
+{% endblock %}

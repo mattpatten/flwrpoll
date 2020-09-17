@@ -1,0 +1,30 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %} Debrief: Neurofloristry Gerbera Poll {% endblock %}
+
+{% block body %}
+<br />
+<p><div class="page-header"><i>Thank you for participating!</i></div></p>
+<br />
+<p><span class="section-header">Background to this study:</span><br />
+<span class="section-content">What is so special about flowers? We as humans grow them and nurture them even though they cannot be eaten or used for any purpose other than as a decorative item. We give them to friends and family as a way to cheer them up or show appreciation, but why?<br />
+<br />
+The purpose of this study is to give us an idea of which aspects of a flower make it more aesthetically pleasing to the viewer. While there may be colour preferences, we are more interested in other features that may be consistent across all viewers, i.e. symmetry, ratio of petal size to central disc, contrasting colours etc. The results from this study will help us not only understand why we perceive something as 'beautiful' or not, but it will also lay the ground work for future work such as development of beauty: Will infants prefer the same flowers as adults? Or in clinical settings: Does perceived beauty change for patients with affective disorders?
+</span>
+</p>
+<br />
+<p><span class="section-content"><b>{{ form.survey_attention.label }}</b></span></p>
+<form method="post" target="_self">
+{% csrf_token %}
+{% for option in form.survey_attention %}
+	{{ option }} &nbsp;
+{% endfor %}
+
+<br /><br /><br />
+<span class="section-content"><b>{{ form.comments.label }}</b></span><br />
+{{ form.comments }}
+<br /><br />
+<input type="submit" class="submit_button" value="Finish -->">
+</form>
+{% endblock %}

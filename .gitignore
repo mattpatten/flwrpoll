@@ -1,0 +1,18 @@
+polls/static/polls/stimuli_holstein/
+polls/static/polls/stimuli/
+polls/static/polls/exemplars/
+
+# Text backup files
+*.bak
+
+run_queries.bat
+
+# Database
+*.sqlite3
+
+*.bat
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

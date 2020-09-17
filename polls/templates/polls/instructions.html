@@ -1,0 +1,39 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %} Quiz Instructions: Neurofloristry Gerbera Poll {% endblock %}
+
+{% block extra_header_info %}
+	<style>
+	body {
+		background-color: white;
+	}
+	</style>
+{% endblock %}
+
+{% block body %}
+<div class="page-header">Survey Instructions</div><br />
+<br />
+You will be shown a series of flowers. Please rate each flower on a scale of 0 – 10 according to: <br />
+<ul>
+ <li><b>{{ instructions_title.appeal }}</b> - {{ instructions_text.appeal }} </li>
+ <li><b>{{ instructions_title.interest }}</b> - {{ instructions_text.interest }} </li>
+</ul>
+<br />
+<span style="color:red"><i>Please have a look at the example flowers shown below and decide which of these you think is the least and most extreme on these properties. You do not need to submit an answer.</i></span><br />
+<br />
+<table class="exemplars"><tr><td align="center">
+{% for thumb_num in exemplars %}
+  {% with "polls/exemplars/"|add:"buy"|add:thumb_num|add:".png" as image_static %}
+    <img class="flower_thumbnail" src="{% static image_static %}" alt="{{ image_static }}">
+  {% endwith %}
+{% endfor %}
+</td></tr></table>
+<br /><br />
+Please press the button when you are ready to begin the survey.<br />
+<br />
+<form method="post" target="_self">
+{% csrf_token %}
+<input type="submit" class="submit_button" value="{{ button_label }}">
+</form>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %} Consent: Neurofloristry Gerbera Poll {% endblock %}
+
+{% block body %}
+<div class="center">Welcome to the Neurofloristry Lab's study on...</div><br />
+<div class="page-header"><i>Flower Power: investigating the aesthetics of flowers</i></div><br />
+<br />
+<span class="help-text">Here you can find information about the survey. To complete the survey please indicate your consent to participate at the bottom of the page.</span><br />
+<br /><br />
+<span class="section-content">You are invited to participate in a research study being conducted by:</span><br />
+<ul>
+ <span class="section-content">
+ <li>Associate Professor Tamara Watson (Western Sydney University, School of Social Sciences and Psychology), </li>
+ <li>Dr Matthew Patten (Western Sydney University, School of Social Sciences and Psychology), </li>
+ <li>Professor Branka Spehar (UNSW Sydney, School of Psychology), and </li>
+ <li>Dr Damien Mannion (UNSW Sydney, School of Psychology).</li>
+ </span>
+</ul>
+<span class="section-content">This project aims to establish why we find certain types of natural stimuli pleasant to look at.</span><br />
+<br />
+<p><span class="section-header">How is the study being paid for?</span><br />
+<span class="section-content">This project is funded by an Australian Research Council Discovery Project Grant DP170101537, 'Flower Power: Natural Form, Aesthetics and the Human Brain' awarded to A/Prof. Tamara Watson, Prof. Branka Spehar, Dr Damien Mannion.</span><br />
+<br />
+<span class="section-header">What will I be asked to do?</span><br />
+<span class="section-content">Participants will be presented with images of flowers, or other natural stimuli like fish or landscapes, and may be asked how appealing they find the image or to provide a judgement about a defined aspect of the appearance of the stimulus (e.g. the dominant colour or a description of the shape, etc.). Participants will also be asked to estimate their design and floristry experience.<br />
+Participants' responses will be combined with computer generated measurements of the stimuli and classification algorithms will be used to determine which aspects of the stimuli presented determine which stimuli are the most reliably rated as most attractive.</span><br />
+<br />
+<span class="section-header">How much of my time will I need to give?</span><br />
+<span class="section-content">You will be asked to complete a 20-minute experimental session online.</span><br />
+<br />
+<span class="section-header">What benefits will I, and/or the broader community, receive for participating?</span><br />
+<span class="section-content">There are no direct benefits to you or your community for participating in this research.</span><br />
+<br />
+<span class="section-header">Will the study involve any risk or discomfort for me? If so, what will be done to rectify it?</span><br />
+<span class="section-content">The study will not involve any discomfort for you. The study will not involve any unpleasant images and any decision you are asked to make about the stimuli will be restricted to how attractive you find them or to analysis of a defined aspect of the appearance of the image.</span><br />
+<br />
+<span class="section-header">How do you intend to publish or disseminate the results?</span><br />
+<span class="section-content">It is anticipated that the results of this research project will be published and/or presented in a variety of forums including in academic journal articles, conference presentations and on the lab website. In any publication and/or presentation, information will be provided in such a way that the participant cannot be identified. You will not be identifiable by the data collected and as such your responses will be anonymous.</span><br />
+<br />
+<span class="section-header">Will the data and information that I have provided be disposed of?</span><br />
+<span class="section-content">No. Your data will be used as per Western Sydney University's Open Access Policy. This means that data collected from this study can be made available online and world-wide in perpetuity. You will not be identifiable by the data collected.</span><br />
+<br />
+<span class="section-header">Can I withdraw from the study?</span><br />
+<span class="section-content">Participation is entirely voluntary and you are not obliged to be involved. If you do participate you can withdraw at any time without giving reason.<br />
+Any data you have supplied during an online, remotely conducted experiment will be retained because your data is collected anonymously and cannot be identified. Should you not complete the online study your data will be deleted.</span><br />
+<br />
+<span class="section-header">Can I tell other people about the study?</span><br />
+<span class="section-content">Yes, you can tell other people about the study providing them with this link: <a href="http://watsonvisionlab.org">http://watsonvisionlab.org</a></span><br />
+<br />
+<span class="section-header">What if I require further information?</span><br />
+<span class="section-content">Please contact Associate Professor Tamara Watson should you wish to discuss the research further before deciding whether or not to participate:<br />
+<i>A/Prof. Tamara Watson <br />
+t.watson@westernsydney.edu.au<br />
+Phone +61 (0)2 9772 6006.<br />
+</i></span>
+<br />
+<span class="section-header">What if I have a complaint?</span><br />
+<span class="section-content">If you have any complaints or reservations about the ethical conduct of this research, you may contact the Ethics Committee through Research Engagement, Development and Innovation (REDI) on Tel +61 2 4736 0229 or email humanethics@westernsydney.edu.au<br />
+Any issues you raise will be treated in confidence and investigated fully, and you will be informed of the outcome.<br />
+This study has been approved by the Western Sydney University Human Research Ethics Committee. The Approval number is H13101.</span></p>
+<br />
+
+<form method="post" target="_self">
+{% csrf_token %}
+<span class="section-content"><i>{{ form.as_p }}</i></span>
+<input type="submit" class="submit_button" value="Continue">
+</form>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+body {
+	background-color: SeaShell;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+.page-layout {  
+	/* computer layout - margins are adjusted below for tablets and phones */
+	max-width: 100%;
+	line-height: 1.4rem;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 4%;
+	margin-bottom: 5%;
+}
+
+@media screen and (max-width: 922px) {
+	/* tablet displays */
+	.page-layout {
+		margin-left: 8%;
+		margin-right: 8%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	/* phone displays */
+	.page-layout {
+		margin-left: 6%;
+		margin-right: 6%;
+		margin-top: 7%;
+		margin-bottom: 5%;
+	}
+}
+
+/* ===  tables  === */
+
+table {
+	width: 100%;
+	border: 0px solid black;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+table.whole-page {
+	min-width: 250px;
+	max-width: 400px;
+}
+
+table.gender {
+	font-size: 0.9rem;
+	text-align: left;
+}
+
+table.exemplars {
+	min-width: 250px;
+	max-width: 500px;
+}
+
+/* === text properties === */
+
+.page-header {
+	font-size: 1.5rem; 
+	font-weight: bold;
+	text-align: center;
+}
+
+.section-header {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.section-content {
+	font-size: 1rem;
+	font-family: "Times New Roman", Times, serif;
+}
+
+.error-text { 
+	/* Display text if an invalid form is returned to guide user as to what they need to correct */
+	color: red;
+	font-size: 0.75rem; 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+.help-text {
+	/* Key text the user should definitely read */
+	color: red;
+	font-size: 0.9rem;
+	font-style: italic; 
+	font-weight: bold;
+}
+
+ul { 
+	/* unordered lists */
+	list-style-type: disc;
+	line-height: 1.6rem;
+}
+
+.center {
+	text-align: center;
+}
+
+/* === graphical elements === */
+
+.submit_button {
+	color: black;
+	min-width: 120px;
+	height: 30px;
+	display: inline-block;
+}
+
+.flower_img { 
+	/* main stimuli */
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	text-align: center;
+}
+
+.flower_thumbnail { 
+	/* exemplar images */
+	width: 90px;
+	height: 90px;
+	display: inline-block;
+}
+
+.slider_obj {
+	/* Display it at 100% resolution, but don't go below X pixels or above Y pixels */
+    width: 95%;
+    min-width: 250px;
+    max-width: 400px;
+	display: inline-block;
+}
+
+#param1_slider_text, #param2_slider_text {
+	--slide_width: 3em; /* define a variable to be used below */
+    width: var(--slide_width);
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+	margin-left: calc(var(--slide_width)*-0.5); /* negative half of width */
+    text-align: center;
+    line-height: 1.6em;
+}
+
+#age-textbox { 
+	width: 30px;
+}
+
+#country-dropdown, #purchase-freq-dropdown { 
+	width: 90%;
+	min-width: 250px;
+	max-width: 400px;
+}
+
+#comments_textbox { 
+	/* text box for comments on debrief page */
+	width: 100%; 
+	max-width: 600px;
+	height: 100px;
+}

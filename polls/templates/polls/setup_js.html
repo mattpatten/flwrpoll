@@ -1,0 +1,16 @@
+{% load static %}
+
+{% block setup_js %}
+
+<script src="//code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+
+{% with ui_touch="polls/js/jquery.ui.touch-punch.js" %}
+	<script src="{% static ui_touch %}"></script>
+{% endwith %}
+
+{% with js_defs="polls/js/setup-jquery.js" %}
+  <script src="{% static js_defs %}"></script> 
+{% endwith %}
+
+{% endblock %}

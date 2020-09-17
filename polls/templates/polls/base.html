@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+  {% block title %}Neurofloristry Gerbera Poll{% endblock %}
+  </title>
+ 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/south-street/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+  <link rel="icon" href="{% static 'polls/favicon-32x32.png' %}"/>
+
+  {% block extra_header_info %}
+  {% endblock %}
+</head>
+
+<body>
+<div class="page-layout">
+{% block body %}
+{% endblock %}
+</div>
+</body>
+</html>

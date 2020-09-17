@@ -1,0 +1,59 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %} Neurofloristry Gerbera Poll {% endblock %}
+
+{% block extra_header_info %}
+	{% include "polls/setup_js.html" %}
+	<style>
+	body {
+		background-color: white;
+	}
+	</style>
+{% endblock %}
+
+{% block body %}
+<div class="center">
+Please rate this flower on the following properties ({{ current_flower }} out of {{ total_flowers }}): <br />
+	
+{% with "polls/stimuli/"|add:"buy"|add:imageNum|add:".png" as image_static %}
+ <img class="flower_img" src="{% static image_static %}"> 
+{% endwith %}
+<br /><br />
+<b>{{ form.appeal.label }}:</b><br />
+<br />
+<div id="param1_slider_obj" class="slider_obj">
+<div id="param1_slider_text" class="ui-slider-handle" name="appeal">
+</div>
+</div>
+<table class="whole-page"><tr>
+<td align='left'  style="font-size:0.75rem">Extremely unappealing</td>
+<td align='right' style="font-size:0.75rem">Extremely appealing</td>
+</tr></table>
+<br /><br />
+
+<b>{{ form.interest.label }}:</b><br />
+<br />
+<div id="param2_slider_obj" class="slider_obj">
+<div id="param2_slider_text" class="ui-slider-handle" name="interest">
+</div>
+</div>
+<table class="whole-page"><tr>
+<td align='left'  style="font-size:0.75rem">Very boring</td>
+<td align='right' style="font-size:0.75rem">Very interesting</td>
+</tr></table>
+
+<br /><br />
+
+<form method="post" target="_self">
+{{ form }}
+{% csrf_token %}
+{{ form.errors }}
+{{ form.non_field_errors }}
+<table class="whole-page"><tr>
+<td align='left'><input type="submit" class="submit_button" name="see_instructions" value="<-- See instructions" ></td>
+<td align='right'><input type="submit" class="submit_button" name="continue" id="continue" value="Continue -->" onclick="this.disabled=true;this.form.submit();" /> </td>
+</tr></table>
+</form>
+</div>
+{% endblock %}

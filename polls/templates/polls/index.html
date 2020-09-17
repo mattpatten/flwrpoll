@@ -1,0 +1,20 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block title %} Neurofloristry Gerbera Poll {% endblock %}
+
+{% block body %}
+<div class="page-header">Neurofloristry Gerbera Poll</div>
+<br /><br /><br /><br />
+<div class="center"><span class="page-content">Would you like to continue your previous session or start the survey anew?</span>
+<br /><br /><br />
+
+<form method="post" target="_self">
+{% csrf_token %}
+<table class="whole-page"><tr>
+<td align='center'><input type="submit" class="submit_button" name="session_restart"  value="Restart survey"></td>
+<td align='center'><input type="submit" class="submit_button" name="session_continue" value="Continue session"></td>
+</tr></table>
+</form>
+</div>
+{% endblock %}
